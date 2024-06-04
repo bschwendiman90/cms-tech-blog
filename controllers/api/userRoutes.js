@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const bcrypt = require ('bcrypt')
 
 router.post('/login', async (req,res) => {
     //      Check if username and passowrd exists in the database then initialize session
@@ -12,7 +13,7 @@ router.post('/login', async (req,res) => {
             return;
         }
 
-        const validPassword = await userData.checkPAssword(req.body.password);
+        const validPassword = await bcrypt.compare(req.body.password, userData.password);
 
         if (!validPassword) {
             res
