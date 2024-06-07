@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment, User } = require('../../models');
+const { Comment,Post, User  } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Handle form submission
@@ -20,5 +20,13 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// router.get('/:id', withAuth, async (req, res) => {
+//     const postId = req.params.id;
+//     // Fetch post data by ID
+//     const post = await Post.findById(postId);
+//     res.render('post', { post });
+// }
+// );
 
 module.exports = router;

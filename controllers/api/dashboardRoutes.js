@@ -35,4 +35,14 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/:id', withAuth, async (req, res) => {
+    const postId = req.params.id;
+    // Fetch post data by ID
+    const post = await Post.findById(postId);
+    res.render('post', { post });
+}
+);
+
+
+
 module.exports = router;

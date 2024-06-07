@@ -1,10 +1,10 @@
 <!-- Loop over each object in the projects array -->
 {{#each posts as |post| }}
-<div class="row mb-4 project">
+<div class="row mb-4 post" data-id="{{id}}">
   <div class="col-md-5">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      <a href="/project/{{post.id}}">{{post.name}}</a>
+      <a href="/comment/{{post.id}}">{{post.title}}</a>
     </h2>
     <p>Created by {{post.user.name}} on {{format_date post.date_created}}</p>
   </div>
@@ -15,3 +15,15 @@
   </div>
 </div>
 {{/each}}
+  {{!-- {{#if comment.length}}
+  {{each comment as |comment|}}
+  <div>
+    <p>Created by {{comment.user.name}} on {{format_date post.date_created}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{comment.content}}
+    </p>
+  </div>
+    {{/each}}
+    {{/if}} --}}

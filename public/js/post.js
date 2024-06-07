@@ -14,7 +14,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/dshboard');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to create post');
       }
@@ -41,7 +41,7 @@ const newFormHandler = async (event) => {
     .querySelector('.new-post-form')
     .addEventListener('submit', newFormHandler);
   
-  document
-    .querySelector('.post-list')
-    .addEventListener('click', delButtonHandler);
+//   document
+//     .querySelector('.post-list')
+//     .addEventListener('click', delButtonHandler);
   
