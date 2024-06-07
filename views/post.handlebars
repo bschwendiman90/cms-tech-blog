@@ -1,0 +1,17 @@
+<div class="text-center">
+  <h2>{{title}}</h2>
+  <p>{{content}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+ 
+</div>
+<div> 
+    <form action="/comments" method="POST">
+        <input type="hidden" name="commentId" value="{{id}}">
+        <input type="hidden" name="userId" value="{{user_id}}">
+        <div>
+            <label for="text">Comment:</label>
+            <textarea id="text" name="text" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
