@@ -4,22 +4,24 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-const bcrypt = require ('bcrypt');
 
 const sequelize = require('./config/connection');
-
-// TODO: Add a comment describing the functionality of this expression
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
 
-// TODO: Add a comment describing the functionality of this object
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -27,9 +29,9 @@ const sess = {
   })
 };
 
-// TODO: Add a comment describing the functionality of this statement
 app.use(session(sess));
 
+// Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 

@@ -5,10 +5,10 @@
   },
   {
     "title": "API Routes",
-    "description": "I'm so totally lost here"
+    "content": "I'm so totally lost here"
   },
   {
     "title": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes."
-  }
+    "content": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes."
+}
 ]

@@ -11,11 +11,11 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    Title: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Content: {
+    content: {
       type: DataTypes.STRING,
     },
     date_created: {
@@ -36,7 +36,7 @@ Post.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'post',
   }
 );
 
