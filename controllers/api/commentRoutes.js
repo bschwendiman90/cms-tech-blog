@@ -36,7 +36,6 @@ router.get('/:post_id', withAuth, async (req, res) => {
 
     const comments = commentData.map((comment) => comment.get({ plain: true }));
     res.render('comment', { comments });
-    res.status(200).json(comments);
   } catch (err) {
     res.status(500).json(err);
   }

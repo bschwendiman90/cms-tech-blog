@@ -1,11 +1,29 @@
-<div class="text-center">
-  <h2>{{title}}</h2>
-  <p>{{content}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
- </div>
- {{each comments as |comment|}}
+<div class="row mb-4 post" data-id="{{post.id}}">
+  <div class="col-md-5">
+    <h2>
+      {{post.title}}
+    </h2>
+    <p>Created by {{post.user.name}} on {{format_date post.date_created}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{post.content}}
+    </p>
+  </div>
+  </div>
+  <div class="col-md-12">
+    <form class="comment-form" data-id="{{post.id}}" style="display: none;">
+      <div class="form-group">
+        <label for="comment">Update post:</label>
+        <textarea class="form-control" id="comment-{{post.id}}" rows="3"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary update" data-id="{{post.id}}">Update</button>
+      <button type="button" class="btn btn-primary delete" data-id="{{post.id}}">Delete</button>
+    </form>
+  </div>
+ {{#each comments as |comment|}}
     <div class="text-center">
-    <p>Created by {{comment.user.name}} on {{format_date comment.date_created}}</p>
+    <p>Created by {{comment.user.name}} on {{format_date this.date_created}}</p>
     <p>{{comment.content}}</p>
     </div>
 {{/each}}
