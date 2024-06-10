@@ -21,11 +21,15 @@
       <button type="button" class="btn btn-primary delete" data-id="{{post.id}}">Delete</button>
     </form>
   </div>
- {{#each comments as |comment|}}
+ {{#if comments.length}}
+  {{#each comments as |comment|}}
     <div class="text-center">
-    <p>Created by {{comment.user.name}} on {{format_date this.date_created}}</p>
-    <p>{{comment.content}}</p>
+      <p>Created by {{comment.user.name}} on {{format_date comment.date_created}}</p>
+      <p>{{comment.content}}</p>
     </div>
-{{/each}}
+  {{/each}}
+{{else}}
+  <p>No comments yet.</p>
+{{/if}}
 
-
+{{!-- <script src="./js/comment.js" defer></script> --}}

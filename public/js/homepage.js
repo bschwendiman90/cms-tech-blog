@@ -48,25 +48,33 @@
         });
     });
 
-    const seeCommentsButton = document.querySelectorAll('.see-comments');
-
-    seeCommentsButton.forEach(button => {
-        console.log(button);
-        button.addEventListener('click', async function (event) {
-            event.preventDefault();
+    document.querySelectorAll('.see-comments').forEach(button => {
+        button.addEventListener('click', function (event) {
             const postId = this.getAttribute('data-id');
-            console.log(postId);
-            const response = await fetch(`/comments/${postId}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            if (response.ok) {
-                response.render('comment', { comments
-                });
-            } else {
-                alert('Failed to get comments');
-            }
+            window.location.href = `/api/comment/${postId}`; // Redirect to the comment page with post ID
         });
     });
+    
+    
+    // const seeCommentsButton = document.querySelectorAll('.see-comments');
+
+    // seeCommentsButton.forEach(button => {
+    //     console.log(button);
+    //     button.addEventListener('click', async function (event) {
+    //         event.preventDefault();
+    //         const postId = this.getAttribute('data-id');
+    //         console.log(postId);
+    //         const response = await fetch(`/api/comment/${postId}`, {
+    //             method: 'GET',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //         });
+    //         if (response.ok) {
+    //             response.render('comment', { comment
+    //             });
+    //         } else {
+    //             alert('Failed to get comments');
+    //         }
+    //     });
+    // });

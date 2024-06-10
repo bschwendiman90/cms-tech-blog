@@ -12,13 +12,13 @@
       {{post.content}}
     </p>
   </div>
-  <button type="button" class="btn btn-primary see-comments" data-id="{{post.id}}">See Comments</button>
 </div>
+  <button type="button" class="btn btn-primary see-comments" data-id="{{post.id}}">See Comments</button>
   <div class="col-md-12">
-    <form class="comment-form" data-id="{{post.id}}" style="display: none;">
+    <form class="form comment-form" data-id="{{post.id}}" style="display: none;">
       <div class="form-group">
         <label for="comment">Leave a comment:</label>
-        <textarea class="form-control" id="comment-{{post.id}}" rows="3"></textarea>
+        <textarea class="form-input" id="comment-{{post.id}}" rows="3"></textarea>
       </div>
       <button type="submit" class="btn btn-primary submit-comment" data-id="{{post.id}}">Submit</button>
     </form>
@@ -27,34 +27,3 @@
 
 
 <script src="./js/homepage.js" defer></script>
-
-
-
-{{!-- {{#each posts as |post| }}
-<div class="row mb-4 post" data-id="{{id}}">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      <a href="/comment/{{post.id}}">{{post.title}}</a>
-    </h2>
-    <p>Created by {{post.user.name}} on {{format_date post.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{post.content}}
-    </p>
-  </div>
-</div>
-{{/each}} --}}
-  {{!-- {{#if comment.length}}
-  {{each comment as |comment|}}
-  <div>
-    <p>Created by {{comment.user.name}} on {{format_date post.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{comment.content}}
-    </p>
-  </div>
-    {{/each}}
-    {{/if}} --}}
