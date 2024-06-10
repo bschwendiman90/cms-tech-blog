@@ -10,13 +10,14 @@ router.post('/', withAuth, async (req, res) => {
     
     // Create a new comment
     const newComment = await Comment.create({
-      text: text,
-      postId: postId,
-      userId: req.session.user_id,
+      content: text,
+      post_id: postId,
+      user_id: req.session.user_id
     });
 
     res.status(200).json(newComment);
   } catch (err) {
+    console.error(err)
     res.status(400).json(err);
   }
 });
@@ -54,9 +55,12 @@ router.get('/:post_id', withAuth, async (req, res) => {
 
     const comments = commentData.map((comment) => comment.get({ plain: true }));
 
+const logged_in = req.session.logged_in || false;
+
     res.render('comment', { 
       post: post.get({ plain: true }), 
-      comments 
+      comments ,
+      logged_in
     });
   } catch (err) {
     console.error('Server Error:', err);
@@ -64,6 +68,16 @@ router.get('/:post_id', withAuth, async (req, res) => {
   }
 });
 
+
+router.get('/', async (req, res) => {
+  try {
+    const comments = await Comment.findAll();
+    res.json(comments);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 // router.get('/:post_id', withAuth, async (req, res) => {
 //   try {
 //     const postId = req.params.post_id;
