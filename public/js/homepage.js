@@ -51,7 +51,7 @@
     document.querySelectorAll('.see-comments').forEach(button => {
         button.addEventListener('click', function (event) {
             const postId = this.getAttribute('data-id');
-            window.location.href = `/api/comment/${postId}`; // Redirect to the comment page with post ID
+            window.location.href = `/comment/${postId}`; // Redirect to the comment page with post ID
         });
     });
     

@@ -12,13 +12,13 @@
   </div>
   </div>
   <div class="col-md-12">
-    <form class="comment-form" data-id="{{post.id}}" style="display: none;">
+    <form class="form update-form" data-id="{{post.id}}" style="display: none;">
       <div class="form-group">
-        <label for="comment">Update post:</label>
-        <textarea class="form-control" id="comment-{{post.id}}" rows="3"></textarea>
+        <label for="update">Update post:</label>
+        <textarea class="form-input" id="update-{{post.id}}" rows="3"></textarea>
       </div>
-      <button type="button" class="btn btn-primary update" data-id="{{post.id}}">Update</button>
-      <button type="button" class="btn btn-primary delete" data-id="{{post.id}}">Delete</button>
+      <button type="button" class="btn btn-primary update-button" data-id="{{post.id}}">Update</button>
+      <button type="button" class="btn btn-primary delete-button" data-id="{{post.id}}">Delete</button>
     </form>
   </div>
 
@@ -36,4 +36,4 @@
   </div>
  
 
-<script src="./js/comment.js" defer></script>
+<script src="/js/comment.js"></script>
