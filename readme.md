@@ -10,7 +10,7 @@ The database will need to be created using postgreSQL in the command line run th
 
 ## Usage
 
-A user can create a new account using the sign up button on the login page. After signing up the user can use the dashboard to create a new post. They can go to the homepage and click on a post to add a new comment. They can use the see comments button to see all of the comments for a given post. In the comments page they can click on the post to either update it or delete it if they are the original user.
+A user can create a new account using the sign up button on the login page. After signing up the user can use the dashboard to create a new post. They can go to the homepage and click on a post to add a new comment. They can use the see comments button to see all of the comments for a given post. In the dashboard page they can click on the post to either update it or delete it if they are the original user.
 
 [Live Site](https://cms-tech-blog-xgm4.onrender.com)
 
