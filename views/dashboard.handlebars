@@ -17,6 +17,16 @@
     </p>
   </div>
 </div>
+  <div class="col-md-12">
+    <form class="form update-form" data-id="{{post.id}}" style="display: none;">
+      <div class="form-group">
+        <label for="update">Update post:</label>
+        <textarea class="form-input" id="update-{{post.id}}" rows="3"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary update-button" data-id="{{post.id}}">Update</button>
+      <button type="button" class="btn btn-primary delete-button" data-id="{{post.id}}">Delete</button>
+    </form>
+  </div>
 {{/each}}
 <div class="row mt-4">
   <div class="col-md-6">
@@ -56,3 +66,4 @@
 </div> --}}
 
 <script src="./js/post.js"></script>
+<script src="./js/comment.js"></script>
